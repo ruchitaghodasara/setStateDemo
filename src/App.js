@@ -1,10 +1,30 @@
 import "./styles.css";
+import React, { Component } from "react";
 
-export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Edit to see some magic happen!</h2>
-    </div>
-  );
+class Home extends Component {
+  state = {
+    firstName: ""
+  };
+
+  handleFormchange = (e) => {
+    this.setState({
+      firstName: e.target.value
+    });
+  };
+
+  render() {
+    return (
+      <>
+        <h6>User Info</h6>
+        <label>First Name: {this.state.firstName}</label>
+
+        <form>
+          <label>First Name</label>
+          <input type="text" onChange={this.handleFormchange} />
+        </form>
+      </>
+    );
+  }
 }
+
+export default Home;
